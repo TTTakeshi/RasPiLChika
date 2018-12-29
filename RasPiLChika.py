@@ -8,4 +8,23 @@ for iLoop in range(5):
     time.sleep(1)
     GPIO.output(2,False)   
     time.sleep(1)
+
+gp_out = 3
+GPIO.setup(gp_out, GPIO.OUT)
+motor = GPIO.PWM(gp_out, 50)
+motor.start(0.0)
+
+bot = 2.5
+mid = 7.2
+top = 12.0
+
+motor.ChangeDutyCycle(bot)
+time.sleep(0.5)
+
+motor.ChangeDutyCycle(top)
+time.sleep(0.5)
+
+motor.ChangeDutyCycle(mid)
+time.sleep(0.5)
+
 GPIO.cleanup()
